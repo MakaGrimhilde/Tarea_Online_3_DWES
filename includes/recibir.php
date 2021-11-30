@@ -13,6 +13,24 @@ if (isset($_POST["boton"])){
             $_SESSION["login"] = 1;
             $_SESSION["usuario"] = $_POST["usuario"];
 
+            if (isset($_POST["recuerdame"]) and ($_POST["recuerdame"] == "on")){
+
+                setcookie("usuario", $_POST["usuario"], time() + (365 * 24 * 60 * 60));
+                setcookie("password", $_POST["password"], time() + (365 * 24 * 60 * 60));
+
+            } else {
+
+                if (isset($_COOKIE["usuario"])){
+
+                    setcookie("usuario", "");
+                }
+
+                if (isset($_COOKIE["password"])){
+
+                    setcookie("password", "");
+                }
+            }
+
             Header('Location:inicio.php');
 
         } else {

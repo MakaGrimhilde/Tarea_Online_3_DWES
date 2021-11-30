@@ -13,8 +13,8 @@
                             
                             <?php
                             
-                                if(isset($_POST["usuario"])){
-                                    echo "value='{$_POST["usuario"]}'";
+                                if(isset($_COOKIE["usuario"])){
+                                    echo "value='{$_COOKIE["usuario"]}'";
                                 }
 
                             ?>
@@ -26,18 +26,21 @@
                         <input type="password" class="form-control" id="password" name="password"
 
                             <?php
-                                if(isset($_POST["password"])){
-                                    echo "value='{$_POST["password"]}'";
+                                if(isset($_COOKIE["password"])){
+                                    echo "value='{$_COOKIE["password"]}'";
                                 }
                             ?>  
                         />  
                     </div>
                 </div>
                 <br/>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">Recordar usuario</label>
-                </div>
+              
+                
+                <label>
+                <input type="checkbox" name="recuerdame">
+                    Recordar usuario
+                </label>
+               
                 <br/>
 
                 <?php
