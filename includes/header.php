@@ -8,4 +8,7 @@
   <li class="nav-item">
     <a class="nav-link" href="informacion.php">Información</a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="includes/cerrarsesion.php">Cerrar sesión</a>
+  </li>
 </ul>

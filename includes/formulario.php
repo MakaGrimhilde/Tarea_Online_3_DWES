@@ -8,7 +8,7 @@
                 <div class="row">
                     <div class="col-sm">
                         <!--cuadro de texto para recoger el nombre-->
-                        <label for="nombre">Usuario</label>
+                        <label for="usuario">Usuario</label>
                         <input type="text" class="form-control" id="usuario" name="usuario"
                             
                             <?php
@@ -18,8 +18,7 @@
                                 }
 
                             ?>
-                        />
-                        <?php  echo mensajeError($errores, "usuario");?>    
+                        />  
                     </div>
                     <div class="col-sm">
                         <!--cuadro de texto para recoger la contraseña-->
@@ -31,17 +30,31 @@
                                     echo "value='{$_POST["password"]}'";
                                 }
                             ?>  
-                        />
-                        <?php  echo mensajeError($errores, "password");?>  
+                        />  
                     </div>
                 </div>
                 <br/>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                        Recordar usuario
-                    </label>
+                    <label class="form-check-label" for="defaultCheck1">Recordar usuario</label>
                 </div>
+                <br/>
+
+                <?php
+                    if(isset($_GET['error'])){
+
+                        if ($_GET['error'] == "dato"){
+
+                            echo '<div class="alert alert-danger row justify-content-center" style="margin-top:5px;">'. 
+                            "El usuario y/o contraseña son incorrectos, inténtelo de nuevo<br/>".'</div>';
+
+                        } elseif ($_GET['error'] == "fuera"){
+
+                            echo '<div class="alert alert-danger row justify-content-center" style="margin-top:5px;">'. 
+                            "Debe logearse antes para poder acceder a esta página<br/>".'</div>';          
+                        }
+                    }     
+                ?>
                 <br/>
                 <!--botones para enviar los datos recogidos en el formulario y para limpiar los campos-->
                 <div class="btn-group" role="group" aria-label="Basic example">
