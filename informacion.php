@@ -2,7 +2,7 @@
 
 session_start();
 
-if (!isset($_SESSION["login"])){
+if (!isset($_SESSION["login"]) and !isset($_COOKIE["mantener"])){
 
     Header('Location:login.php?error=fuera');
 
@@ -21,7 +21,19 @@ if (!isset($_SESSION["login"])){
             <h2>Mi sitio - Información</h2>
         </div>
         <div class="row justify-content-center">
-            <h4>Bienvenido/a <?php echo $_SESSION["usuario"];?></h4>
+            <h4>Bienvenido/a <?php 
+            
+            if (isset($_COOKIE["mantener"])){
+
+                echo $_COOKIE["mantener"];
+
+            } else {
+
+                echo $_SESSION["usuario"];
+
+            }
+           
+            ?></h4>
         </div>
         <br/>
         <div class="row justify-content-center">

@@ -34,14 +34,19 @@
                     </div>
                 </div>
                 <br/>
-              
-                
-                <label>
-                <input type="checkbox" name="recuerdame">
-                    Recordar usuario
-                </label>
-               
-                <br/>
+                <div class="row">
+                    <div class="col-sm">
+                        <label>
+                            <input type="checkbox" name="recuerdame">
+                                Recordar usuario
+                        </label>
+                        &nbsp;&nbsp;
+                        <label>
+                            <input type="checkbox" name="mantener">
+                                Mantener sesión
+                        </label>
+                    </div>
+                </div>
 
                 <?php
                     if(isset($_GET['error'])){
@@ -58,6 +63,7 @@
                         }
                     }     
                 ?>
+                
                 <br/>
                 <!--botones para enviar los datos recogidos en el formulario y para limpiar los campos-->
                 <div class="btn-group" role="group" aria-label="Basic example">
