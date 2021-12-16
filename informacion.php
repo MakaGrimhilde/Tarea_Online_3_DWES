@@ -2,6 +2,7 @@
 
 session_start();
 
+//si se intenta acceder a esta página sin haberse logeado ni con la sesión abierta se redirige a login
 if (!isset($_SESSION["login"]) and !isset($_COOKIE["mantener"])){
 
     Header('Location:login.php?error=fuera');
@@ -23,11 +24,12 @@ if (!isset($_SESSION["login"]) and !isset($_COOKIE["mantener"])){
         <div class="row justify-content-center">
             <h4>Bienvenido/a <?php 
             
+            //muestra el nombre de usuario almacenado en la cookie de mantener sesión
             if (isset($_COOKIE["mantener"])){
 
                 echo $_COOKIE["mantener"];
 
-            } else {
+            } else { //si no, se muestra el nombre almacenado al iniciar sesión
 
                 echo $_SESSION["usuario"];
 
@@ -40,7 +42,5 @@ if (!isset($_SESSION["login"]) and !isset($_COOKIE["mantener"])){
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum eveniet temporibus ad, 
             ducimus minus pariatur consequatur odit quia quidem quos.
         </div>
-        <br/>
-        <?php require 'includes/footer.php';?>
     </body>
 </html>

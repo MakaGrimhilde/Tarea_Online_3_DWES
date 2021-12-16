@@ -3,7 +3,7 @@
     <h2>Login de usuario</h2>
 </div>
 <div class="row justify-content-center">
-            <!--Comienzo de la estructura del formulario. Los datos recogidos por el método POST serán recibidos en ejer_26.php-->    
+            <!--Comienzo de la estructura del formulario-->    
             <form class="form-horizontal" method="POST" action="" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-sm">
@@ -12,7 +12,7 @@
                         <input type="text" class="form-control" id="usuario" name="usuario"
                             
                             <?php
-                            
+                                //muestra el nombre de usuario ya guardado en la cookie
                                 if(isset($_COOKIE["usuario"])){
                                     echo "value='{$_COOKIE["usuario"]}'";
                                 }
@@ -26,6 +26,7 @@
                         <input type="password" class="form-control" id="password" name="password"
 
                             <?php
+                                //muestra la contraseña ya guardada en la cookie
                                 if(isset($_COOKIE["password"])){
                                     echo "value='{$_COOKIE["password"]}'";
                                 }
@@ -35,6 +36,7 @@
                 </div>
                 <br/>
                 <div class="row">
+                    <!--Casillas de verificación para recordar usuario y mantener sesión abierta-->
                     <div class="col-sm">
                         <label>
                             <input type="checkbox" name="recuerdame">
@@ -49,14 +51,14 @@
                 </div>
 
                 <?php
-                    if(isset($_GET['error'])){
+                    if(isset($_GET['error'])){ //si existen errores en el formulario
 
-                        if ($_GET['error'] == "dato"){
+                        if ($_GET['error'] == "dato"){ //si es un dato incorrecto
 
                             echo '<div class="alert alert-danger row justify-content-center" style="margin-top:5px;">'. 
                             "El usuario y/o contraseña son incorrectos, inténtelo de nuevo<br/>".'</div>';
 
-                        } elseif ($_GET['error'] == "fuera"){
+                        } elseif ($_GET['error'] == "fuera"){ //si se intenta acceder directamente a la página sin login
 
                             echo '<div class="alert alert-danger row justify-content-center" style="margin-top:5px;">'. 
                             "Debe logearse antes para poder acceder a esta página<br/>".'</div>';          

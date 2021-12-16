@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:    
+  web:
+    image: php:8.0-apache
+    container_name: web
+    restart: always
+    volumes:
+      - ./:/var/www/html/
+    ports:
+      - "8501:80"
+    stdin_open: true
+    tty: true   
